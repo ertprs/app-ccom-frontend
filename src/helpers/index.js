@@ -205,7 +205,7 @@ export const getItems = () => {
 
 export const getRules = () => {
   const rules = {
-    nome: [(nome) => !!nome || "Informe o nome!"],
+    nome: [(nome) => !!nome || "Informe o nome!", (nome) => typeof nome !== String || 'Somente letras!'],
     sobrenome: [(sobrenome) => !!sobrenome || "Informe o sobrenome!"],
     canal: [(canal) => !!canal || "Informe o canal de atendimento!"],
     placa: [
@@ -255,6 +255,7 @@ export const getRules = () => {
       (email) => !!email || "Informe o e-mail do solicitante!",
       (email) => /.+@.+\..+/.test(email) || "Informe um e-mail válido!",
     ],
+    operacao:[operacao => !!operacao || 'Informe a operação!']
     error: false,
     success: false,
     mandatory: false,

@@ -105,6 +105,16 @@
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="4">
+                <v-select
+                  v-model="dados.operacao"
+                  filled
+                  :rules="rules.operacao"
+                  :items="items.operacao"
+                  label="* Operação"
+                  required
+                ></v-select>
+              </v-col>
+              <v-col cols="12" sm="4" md="4" lg="4">
                 <v-text-field
                   v-model="dados.nome"
                   label="* Solicitado por:"
@@ -218,6 +228,7 @@ export default {
       ],
       tecnologia: ["Autotrac", "Omnilink", "Onixsat", "Sascar", "Sighra"],
       vinculo: ["Autônomo", "Agregado", "Frota"],
+      operacao: ['Alpargatas', 'Bayer', 'Fitesa', 'Monsanto', 'Outros']
     },
   }),
   methods: {
