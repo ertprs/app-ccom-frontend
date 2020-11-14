@@ -225,6 +225,7 @@ export default {
           usuario: this.currentUser.user.nome,
         };
         await api().post("ddr", registros);
+        console.log(registros.vencimento)
         this.$swal({
           icon: "success",
           text: "DDR cadastrada com sucesso!",

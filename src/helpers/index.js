@@ -19,6 +19,22 @@ export const downloadReports = (name, data) => {
   );
 };
 
+export const date = () => {
+  let currentDate = new Date();
+  let day = String(currentDate.getDate()).padStart(2, "0");
+  let month = String(currentDate.getMonth() + 1).padStart(2, "0");
+  let year = currentDate.getFullYear();
+
+  return (currentDate = `${day}/${month}/${year}`);
+};
+
+export const removeDaysFromDate = (days) => {
+  const date = new Date();
+  let dateMinusDays = new Date(date.getTime() - days * 24 * 60 * 60 * 1000);
+  return `${dateMinusDays.getDate()}/${dateMinusDays.getMonth() +
+    1}/${dateMinusDays.getFullYear()}`;
+};
+
 export const capitalize = (string) => {
   if (string) {
     let words = string.split(" ");
