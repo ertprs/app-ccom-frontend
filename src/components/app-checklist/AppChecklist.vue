@@ -248,17 +248,18 @@ export default {
       );
     },
     changeType(value) {
-      if (value === "Truck Aberto" || value === "Truck Baú") {
-        this.showPlate = false;
-        this.showPlate2 = false;
-      } else if (
+      if (
         value === "Bitrem / Rodotrem Aberto" ||
         value === "Bitrem / Rodotrem Baú"
       ) {
         this.showPlate = true;
         this.showPlate2 = true;
-      } else {
+      } else if(value === 'Truck Aberto' || 'Truck Baú') {
+        this.showPlate = false;
+        this.showPlate2 = false;
+      }else{
         this.showPlate = true;
+        this.showPlate2 = false
       }
     },
     async save() {
