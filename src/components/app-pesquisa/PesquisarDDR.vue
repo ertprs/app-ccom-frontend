@@ -13,6 +13,11 @@
         sort-by="calories"
         class="elevation-1"
       >
+        <template v-slot:[`item.vencimento`]="{ item }">
+          <v-chip :color="getColor(item.vencimento)" dark>
+            {{ item.vencimento }}
+          </v-chip>
+        </template>
         <template v-slot:top>
           <v-dialog v-model="dialog" max-width="1000px">
             <v-card>
@@ -169,12 +174,12 @@
             </v-card>
           </v-dialog>
         </template>
-        <template v-slot:item.editar="{ item }">
+        <template v-slot:[`item.editar`]="{ item }">
           <v-icon medium @click="editItem(item)">
             mdi-pencil
           </v-icon>
         </template>
-        <template v-slot:item.excluir="{ item }">
+        <template v-slot:[`item.excluir`]="{ item }">
           <v-icon medium @click="deleteItem(item)">
             mdi-delete
           </v-icon>
@@ -314,6 +319,10 @@ export default {
     async initialize() {
       const response = await api().get("ddr");
       this.ddr = response.data;
+    },
+    getColor(vencimento) {
+      if (vencimento > Date.now) return "red";
+      else if (vencimento < Date.now) return "green";
     },
     editItem(item) {
       this.editedIndex = this.ddr.indexOf(item);

@@ -26,7 +26,7 @@
             :footer-props="{ itemsPerPageText: 'Linhas por página' }"
             noDataText="Nenhum checklist em aberto!"
           >
-            <template v-slot:item.actions="{ item }">
+            <template v-slot:[`item.actions`]="{ item }">
               <v-icon @click="doingChecklist(item)" medium class="mr-2">
                 play_arrow
               </v-icon>
@@ -117,7 +117,7 @@
                   :items="['Agregado', 'Autônomo', 'Frota']"
                   :rules="rules.vinculo"
                   required
-                  label="Status"
+                  label="Vínculo"
                 ></v-select>
               </v-col>
               <v-col cols="12">
@@ -161,9 +161,10 @@
                 <v-textarea
                   v-show="showObs"
                   filled
-                  v-model="info.observacao"
-                  label="Observação"
+                  v-model="info.motivo"
+                  label="Motivo"
                   value=""
+                  :rules="rules.motivo"
                 ></v-textarea>
               </v-col>
               <v-row justify="center">
@@ -262,13 +263,14 @@ export default {
       filial: "",
       statusChecklist: "",
       base: "",
-      observacao: "",
+      motivo: "",
       status: "",
     },
     rules: {
       status: [(status) => !!status || "Informe o status!"],
       base: [(base) => !!base || "Informe a base!"],
       vinculo: [(vinculo) => !!vinculo || "Informe o vínculo!"],
+      motivo: [(motivo) => !!motivo || "Informe o motivo!"],
     },
     currentUser: "",
   }),
@@ -320,9 +322,7 @@ export default {
           vinculo: this.info.vinculo,
           nome: this.info.nome,
           filial: this.info.filial,
-          observacao: this.info.observacao
-            ? this.info.observacao.trim()
-            : this.info.observacao,
+          motivo: this.info.motivo ? this.info.motivo.trim() : this.info.motivo,
           status: this.info.statusChecklist,
           base: this.info.base,
           validade: this.info.validade,
