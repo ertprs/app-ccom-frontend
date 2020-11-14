@@ -6,9 +6,7 @@
         <p class="description">
           Favor preencher o formulário abaixo com os dados do veículo.
         </p>
-        <p class="description">
-          Dúvidas contate o CCOM:
-        </p>
+        <p class="description">Dúvidas contate o CCOM:</p>
         <p class="description -item">51 3462-3500</p>
         <p class="description -item">51 9 9186-3152</p>
         <p class="description -item">ccom.controle@modular.com.br</p>
@@ -176,7 +174,7 @@
                 </v-btn>
               </v-col>
               <v-col cols="12">
-                <small class="red--text ">* Campo obrigatório</small>
+                <small class="red--text">* Campo obrigatório</small>
               </v-col>
             </v-row>
           </v-form>
@@ -228,7 +226,7 @@ export default {
       ],
       tecnologia: ["Autotrac", "Omnilink", "Onixsat", "Sascar", "Sighra"],
       vinculo: ["Autônomo", "Agregado", "Frota"],
-      operacao: ['Alpargatas', 'Bayer', 'Fitesa', 'Monsanto', 'Outros']
+      operacao: ["Alpargatas", "Bayer", "Fitesa", "Monsanto", "Outros"],
     },
   }),
   methods: {
@@ -254,12 +252,12 @@ export default {
       ) {
         this.showPlate = true;
         this.showPlate2 = true;
-      } else if(value === 'Truck Aberto' || 'Truck Baú') {
+      } else if (value === "Truck Aberto" || value === "Truck Baú") {
         this.showPlate = false;
         this.showPlate2 = false;
-      }else{
+      } else {
         this.showPlate = true;
-        this.showPlate2 = false
+        this.showPlate2 = false;
       }
     },
     async save() {
