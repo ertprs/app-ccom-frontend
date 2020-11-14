@@ -322,7 +322,7 @@ export default {
     },
     getColor(vencimento) {
       if (vencimento == date()) return "red";
-      else if (removeDaysFromDate(date()) < vencimento) return "orange";
+      else if (removeDaysFromDate(30) < vencimento) return "orange";
       else return "green";
     },
     editItem(item) {
