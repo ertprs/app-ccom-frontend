@@ -79,6 +79,7 @@
                   label="Número do Rastreador"
                   filled
                   :rules="rules.numeroRastreador"
+                  type="number"
                   required
                 ></v-text-field>
               </v-col>

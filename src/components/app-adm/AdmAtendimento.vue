@@ -47,7 +47,6 @@
 
 <script>
 import api from "../../services/api";
-import { formatDate } from "../../helpers";
 export default {
   name: "AdmAtendimento",
   data: () => ({
@@ -64,7 +63,7 @@ export default {
       { text: "Motivo", value: "motivo" },
       { text: "Registro", value: "registro" },
       { text: "Usuário", value: "usuario" },
-      { text: "Data", value: `${formatDate("data")}` },
+      { text: "Data", value: "data" },
       { text: "Ações", value: "actions", sortable: false },
     ],
     atendimentos: [],

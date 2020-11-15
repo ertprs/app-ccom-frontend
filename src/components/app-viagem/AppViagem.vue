@@ -83,6 +83,7 @@
                   filled
                   label="* Distância a percorrer vazio"
                   v-model="dados.distancia"
+                  type="number"
                   required
                 ></v-text-field>
               </v-col>

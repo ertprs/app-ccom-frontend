@@ -28,16 +28,6 @@ export const date = () => {
   return (currentDate = `${day}/${month}/${year}`);
 };
 
-export const formatDate = (date) => {
-  let splitDate = date.split("-");
-  let year = splitDate[0];
-  let month = splitDate[1];
-  let day = splitDate[2];
-
-  let newDate = `${day}/${month}/${year}`;
-  return newDate;
-};
-
 export const getDifference = (date) => {
   let now = new Date();
   let splitDate = date.split("/");
