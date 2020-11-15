@@ -101,12 +101,12 @@
               </v-card>
             </v-dialog>
           </template>
-          <template v-slot:item.editar="{ item }">
+          <template v-slot:[`item.editar`]="{ item }">
             <v-icon medium @click="editItem(item)">
               mdi-pencil
             </v-icon>
           </template>
-          <template v-slot:item.excluir="{ item }">
+          <template v-slot:[`item.excluir`]="{ item }">
             <v-icon medium @click="deleteItem(item)">
               mdi-delete
             </v-icon>

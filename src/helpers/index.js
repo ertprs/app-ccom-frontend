@@ -36,7 +36,7 @@ export const getDifference = (date) => {
   let year = splitDate[2];
   date = new Date(year, month - 1, day)
 
-  let diff = Math.abs(now.getTime() - date.getTime())
+  let diff = date.getTime() - now.getTime()
   let days = Math.ceil(diff / (1000 * 60 * 60 * 24))
 
   return days;

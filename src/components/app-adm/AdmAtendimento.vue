@@ -3,7 +3,11 @@
     <v-data-table
       :headers="headers"
       :items="atendimentos"
-      :footer-props="{ itemsPerPageText: 'Linhas por página' }"
+      :footer-props="{
+        itemsPerPageText: 'Linhas por página',
+        'items-per-page-options': [5, 10, 25, 50, 100],
+      }"
+      :items-per-page="5"
       sort-by="data"
       class="elevation-1"
     >
@@ -27,7 +31,7 @@
           </v-dialog>
         </v-toolbar>
       </template>
-      <template v-slot:item.actions="{ item }">
+      <template v-slot:[`item.actions`]="{ item }">
         <v-icon medium @click="deleteItem(item, item.id)">
           mdi-delete
         </v-icon>

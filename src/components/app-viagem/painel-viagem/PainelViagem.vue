@@ -26,7 +26,7 @@
             :footer-props="{ itemsPerPageText: 'Linhas por página' }"
             noDataText="Nenhuma viagem encontrada!"
           >
-            <template v-slot:item.actions="{ item }">
+            <template v-slot:[`item.actions`]="{ item }">
               <v-icon @click="save(item)" medium class="mr-2">
                 check
               </v-icon>
