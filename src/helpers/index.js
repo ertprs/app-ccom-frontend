@@ -28,11 +28,18 @@ export const date = () => {
   return (currentDate = `${day}/${month}/${year}`);
 };
 
-export const removeDaysFromDate = (days) => {
-  const date = new Date();
-  let dateMinusDays = new Date(date.getTime() - days * 24 * 60 * 60 * 1000);
-  return `${dateMinusDays.getDate()}/${dateMinusDays.getMonth() +
-    1}/${dateMinusDays.getFullYear()}`;
+export const getDifference = (date) => {
+  let now = new Date();
+  let splitDate = date.split('/');
+  let day = splitDate[0];
+  let month = splitDate[1];
+  let year = splitDate[2];
+  date = new Date(year, month - 1, day)
+
+  let diff = Math.abs(now.getTime() - date.getTime())
+  let days = Math.ceil(diff / (1000 * 60 * 60 * 24))
+
+  return days;
 };
 
 export const capitalize = (string) => {

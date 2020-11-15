@@ -196,7 +196,7 @@
 
 <script>
 import api from "../../services/api";
-import { getItems, date, removeDaysFromDate } from "../../helpers";
+import { getItems, date, getDifference } from "../../helpers";
 export default {
   name: "PesquisarDDR",
   data: () => ({
@@ -321,8 +321,8 @@ export default {
       this.ddr = response.data;
     },
     getColor(vencimento) {
-      if (vencimento == date()) return "red";
-      else if (removeDaysFromDate(30) < vencimento) return "orange";
+      if (vencimento == date() || getDifference(vencimento) == 10) return "red";
+      else if (getDifference(vencimento) == 30) return "orange";
       else return "green";
     },
     editItem(item) {
