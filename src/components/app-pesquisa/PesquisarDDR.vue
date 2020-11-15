@@ -8,7 +8,17 @@
       </v-col>
       <v-col>
         <v-card>
-          <v-card-title> </v-card-title>
+          <v-card-title>
+            <v-col cols="4">
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Pesquisar"
+                single-line
+                hide-details=""
+              ></v-text-field>
+            </v-col>
+          </v-card-title>
           <v-data-table
             :headers="headers"
             :search="search"
@@ -33,15 +43,6 @@
                   <v-card-title>
                     <span class="text-button">Editar DDR</span>
                   </v-card-title>
-                  <v-col cols="4">
-                    <v-text-field
-                      v-model="search"
-                      append-icon="mdi-magnify"
-                      label="Pesquisar"
-                      single-line
-                      hide-details=""
-                    ></v-text-field>
-                  </v-col>
                   <v-card-text>
                     <v-container>
                       <v-row>
