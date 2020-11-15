@@ -3,9 +3,6 @@
     <app-nav />
     <v-container fill-height fluid>
       <v-row justify="center">
-        <v-col cols="12">
-          Logo do CCOM aqui
-        </v-col>
       </v-row>
     </v-container>
     <app-footer />
