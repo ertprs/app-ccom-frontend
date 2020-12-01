@@ -170,6 +170,7 @@
               <v-row justify="center">
                 <v-btn
                   @click="validate"
+                  :disabled="enableButton"
                   type="submit"
                   class="white--text mr-4"
                   color="#2c3e50"
@@ -194,6 +195,7 @@ import api from "../../../services/api";
 export default {
   name: "PainelChecklist",
   data: () => ({
+    valid: true,
     visibleModal: false,
     showObs: false,
     search: "",
@@ -289,6 +291,13 @@ export default {
         this.showObs = true;
       } else {
         this.showObs = false;
+      }
+    },
+    enableButton(){
+      if(this.info.status === 'Aprovado' || this.info.status === 'Válido'){
+        this.valid = true;
+      }else{
+        this.valid = false;
       }
     },
     async doingChecklist(item) {
