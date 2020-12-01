@@ -71,7 +71,7 @@
           <v-select
             label="* Filial"
             v-model="dados.filial"
-            :rules="rules.filial"
+            :rules="!showFilial ? rules.filial : null"
             :items="items.filiais"
             v-show="showFilial"
             required
