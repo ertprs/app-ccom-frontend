@@ -74,7 +74,7 @@
             :rules="rules.filial"
             :items="items.filiais"
             :disabled="!showFilial"
-            required
+            :required="!showFilial"
             outlined
             placeholder="Informe a filial"
           />
