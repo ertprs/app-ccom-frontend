@@ -17,7 +17,7 @@
           <v-select
             @change="changeType"
             v-model="dados.tipo"
-            filled
+            outlined
             :rules="rules.tipo"
             :items="items.tipo"
             label="* Tipo de Veículo"
@@ -29,7 +29,7 @@
             v-model="dados.placa"
             :rules="rules.placa"
             label="* Placa do Cavalo"
-            filled
+            outlined
             required
             v-mask="'XXX-#X##'"
           ></v-text-field>
@@ -39,7 +39,7 @@
             v-model="dados.placaCarreta1"
             label="* Placa da Carreta"
             :rules="rules.placa"
-            filled
+            outlined
             v-mask="'XXX-#X##'"
           ></v-text-field>
         </v-col>
@@ -48,7 +48,7 @@
             v-model="dados.placaCarreta2"
             label="* Placa da Carreta 2"
             :rules="rules.placa"
-            filled
+            outlined
             v-mask="'XXX-#X##'"
           ></v-text-field>
         </v-col>
@@ -56,7 +56,7 @@
           <v-text-field
             v-model="dados.numeroRastreador"
             label="Número do Rastreador"
-            filled
+            outlined
             :rules="rules.numeroRastreador"
             type="number"
             required
@@ -65,7 +65,7 @@
         <v-col cols="12" sm="6" md="2">
           <v-select
             v-model="dados.tecnologia"
-            filled
+            outlined
             :rules="rules.tecnologia"
             :items="items.tecnologia"
             label="* Tecnologia"
@@ -75,7 +75,7 @@
         <v-col cols="12" sm="6" md="2">
           <v-select
             v-model="dados.vinculo"
-            filled
+            outlined
             :rules="rules.vinculo"
             :items="items.vinculo"
             label="* Vínculo do motorista"
@@ -86,7 +86,7 @@
           <v-text-field
             v-model="dados.nome"
             label="* Solicitado por:"
-            filled
+            outlined
             :rules="rules.nome"
             required
             hint="Nome e sobrenome"
@@ -95,7 +95,7 @@
         <v-col cols="12" sm="6" md="2">
           <v-select
             v-model="dados.filial"
-            filled
+            outlined
             :rules="rules.filial"
             :items="items.filiais"
             label="* Filial"
@@ -104,7 +104,7 @@
         <v-col cols="12" sm="6" md="2">
           <v-select
             v-model="dados.status"
-            filled
+            outlined
             :rules="rules.status"
             :items="['Aprovado', 'Cancelado', 'Reprovado', 'Válido']"
             label="* Status"
@@ -113,7 +113,7 @@
         <v-col cols="12" sm="6" md="2">
           <v-select
             v-model="dados.base"
-            filled
+            outlined
             :rules="rules.base"
             :items="['Apisul', 'CCOM']"
             label="* Base"
