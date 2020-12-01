@@ -59,6 +59,17 @@
         </v-col>
         <v-col cols="12" sm="6" md="2">
           <v-select
+            label="* Canal"
+            v-model="dados.canal"
+            :items="items.canais"
+            :rules="rules.canal"
+            required
+            outlined
+            placeholder="Informe o canal"
+          />
+        </v-col>
+        <v-col cols="12" sm="6" md="2">
+          <v-select
             label="* Filial"
             v-model="dados.filial"
             :rules="rules.filial"
@@ -67,17 +78,6 @@
             required
             outlined
             placeholder="Informe a filial"
-          />
-        </v-col>
-        <v-col cols="12" sm="6" md="2">
-          <v-select
-            label="* Canal"
-            v-model="dados.canal"
-            :items="items.canais"
-            :rules="rules.canal"
-            required
-            outlined
-            placeholder="Informe o canal"
           />
         </v-col>
 
@@ -270,6 +270,7 @@ export default {
         this.visivelMotoristas = true;
         this.visivelGerenciadora = false;
         this.visivelGeral = false;
+        this.showFilial = true;
       } else if (
         value === "GR Apisul" ||
         value === "GR BrasilRisk" ||
@@ -286,11 +287,13 @@ export default {
         this.visivelMotoristas = false;
         this.visivelGerenciadora = false;
         this.visivelDedicados = true;
+        this.showFilial = true;
       } else {
         this.visivelMotoristas = false;
         this.visivelGerenciadora = false;
         this.visivelDedicados = false;
         this.visivelGeral = true;
+        this.showFilial = true;
       }
     },
     async save() {

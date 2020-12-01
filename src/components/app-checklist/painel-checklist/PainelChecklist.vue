@@ -164,7 +164,6 @@
                   v-model="info.motivo"
                   label="Motivo"
                   value=""
-                  :rules="rules.motivo"
                 ></v-textarea>
               </v-col>
               <v-row justify="center">
@@ -289,10 +288,8 @@ export default {
     changeStatus(value) {
       if (value === "Reprovado" || value === "Cancelado") {
         this.showObs = true;
-        this.valid = false;
       } else {
         this.showObs = false;
-        this.valid = true;
       }
     },
     async doingChecklist(item) {
