@@ -102,7 +102,7 @@
                       </td>
                       <td
                         class="table-font text-center"
-                        v-if="checklist.vinculo === 'Autônomo'"
+                        v-if="checklist.vinculo === 'Autônomo' || checklist.status === 'Válido'"
                       >
                         <span class="notValid">Não possui validade!</span>
                       </td>
