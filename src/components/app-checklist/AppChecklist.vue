@@ -291,7 +291,6 @@ export default {
             : this.dados.observacao,
         };
         await api().post("/checklist", checklist);
-        console.log(checklist)
         this.$swal({
           icon: "success",
           text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
