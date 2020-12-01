@@ -37,8 +37,7 @@
         </v-col>
         <v-col cols="12" sm="6" md="2">
           <v-text-field
-            label="* Placa"
-            :rules="rules.placa"
+            label="Placa"
             v-model="dados.placa"
             v-mask="'XXX-#X##'"
             outlined
@@ -270,7 +269,7 @@ export default {
         this.visivelMotoristas = true;
         this.visivelGerenciadora = false;
         this.visivelGeral = false;
-        this.showFilial = true;
+        this.showFilial = false;
       } else if (
         value === "GR Apisul" ||
         value === "GR BrasilRisk" ||
@@ -303,10 +302,10 @@ export default {
             ? `${capitalize(this.dados.nome.trim())} ${capitalize(
                 this.dados.sobrenome.trim()
               )}`
-            : this.dados.nome,
+            : '',
           placa: this.dados.placa
             ? this.dados.placa.toUpperCase()
-            : this.dados.placa,
+            : '',
           vinculo: this.dados.vinculo,
           filial: this.dados.filial,
           canal: this.dados.canal,
