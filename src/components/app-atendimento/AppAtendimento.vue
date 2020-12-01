@@ -71,10 +71,8 @@
           <v-select
             label="* Filial"
             v-model="dados.filial"
-            :rules="rules.filial"
             :items="items.filiais"
             :disabled="!showFilial"
-            :required="!showFilial"
             outlined
             placeholder="Informe a filial"
           />

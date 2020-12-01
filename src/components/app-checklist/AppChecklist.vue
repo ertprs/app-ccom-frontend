@@ -167,6 +167,7 @@
                   color="#2c3e50"
                   class="white--text mr-4"
                   @click="validate"
+                  :disabled="!valid"
                 >
                   Enviar
                 </v-btn>
