@@ -116,7 +116,7 @@
         <v-list-item>
           <v-list-item-content>
             <router-link to="/registrar-checklist" class="link white--text">
-              <v-list-item-title class="text-button">
+              <v-list-item-title class="text-button mt-4">
                 Novo
               </v-list-item-title>
             </router-link>
