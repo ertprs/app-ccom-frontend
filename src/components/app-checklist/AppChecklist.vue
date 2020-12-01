@@ -289,12 +289,14 @@ export default {
             ? capitalizeOne(this.dados.observacao.trim())
             : this.dados.observacao,
         };
-        await api().post("/checklist", checklist);
-        this.$swal({
-          icon: "success",
-          text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
-          showConfirmButton: true,
-        });
+        if (this.valid) {
+          await api().post("/checklist", checklist);
+          this.$swal({
+            icon: "success",
+            text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
+            showConfirmButton: true,
+          });
+        }
         this.reset();
       } catch (error) {
         this.$swal({
