@@ -328,7 +328,18 @@ export default {
           validade: this.info.validade,
           usuario: this.currentUser.user.nome,
         };
+        const dadosAtendimento = {
+          nome: this.info.nome,
+          placa: this.info.placa,
+          filial: this.info.filial,
+          motivo: "Solicitar Checklist (Modular)",
+          registro: `Carreta(s): ${
+            this.info.placaCarreta1 ? this.info.placaCarreta1 : ""
+          }, ${this.info.placaCarreta2 ? this.info.placaCarreta2 : ""}`,
+          usuario: this.currentUser.user.nome,
+        };
         await api().post("registrar-checklist", dados);
+        await api().post("atendimento", dadosAtendimento);
         this.doneChecklist(this.info.id);
         this.$swal({
           icon: "success",

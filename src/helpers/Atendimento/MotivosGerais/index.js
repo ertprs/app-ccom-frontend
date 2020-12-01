@@ -99,4 +99,9 @@ export const MotivosGerais = [
     valor: "Solicitar Espelhamento (Modular)",
     titulo: "Solicitar Espelhamento",
   },
+  {
+    indice: 21,
+    valor: "Solicitar Checklist (Modular)",
+    titulo: "Solicitar Checklist",
+  },
 ];

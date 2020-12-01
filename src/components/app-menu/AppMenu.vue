@@ -115,6 +115,11 @@
         </template>
         <v-list-item>
           <v-list-item-content>
+            <router-link to="/registrar-checklist" class="link white--text">
+              <v-list-item-title class="text-button">
+                Novo
+              </v-list-item-title>
+            </router-link>
             <router-link to="/checklist" class="link white--text">
               <v-list-item-title class="text-button">
                 Painel
