@@ -170,7 +170,6 @@
               <v-row justify="center">
                 <v-btn
                   @click="validate"
-                  :disabled="!valid"
                   type="submit"
                   class="white--text mr-4"
                   color="#2c3e50"
@@ -195,7 +194,6 @@ import api from "../../../services/api";
 export default {
   name: "PainelChecklist",
   data: () => ({
-    valid: true,
     visibleModal: false,
     showObs: false,
     search: "",
