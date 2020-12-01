@@ -120,6 +120,7 @@
                 Novo
               </v-list-item-title>
             </router-link>
+            <v-divider class="mt-2"></v-divider>
             <router-link to="/checklist" class="link white--text">
               <v-list-item-title class="text-button">
                 Painel
