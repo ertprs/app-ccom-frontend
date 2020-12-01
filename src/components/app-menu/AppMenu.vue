@@ -116,13 +116,13 @@
         <v-list-item>
           <v-list-item-content>
             <router-link to="/registrar-checklist" class="link white--text">
-              <v-list-item-title class="text-button mt-4">
+              <v-list-item-title class="text-button">
                 Novo
               </v-list-item-title>
             </router-link>
             <v-divider class="mt-2"></v-divider>
             <router-link to="/checklist" class="link white--text">
-              <v-list-item-title class="text-button">
+              <v-list-item-title class="text-button mt-4">
                 Painel
               </v-list-item-title>
             </router-link>
