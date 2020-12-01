@@ -38,8 +38,6 @@
           <v-text-field
             v-model="dados.placaCarreta1"
             label="* Placa da Carreta"
-            :rules="rules.placa"
-            required
             outlined
             v-mask="'XXX-#X##'"
           ></v-text-field>
@@ -48,8 +46,6 @@
           <v-text-field
             v-model="dados.placaCarreta2"
             label="* Placa da Carreta 2"
-            required
-            :rules="rules.placa"
             outlined
             v-mask="'XXX-#X##'"
           ></v-text-field>
