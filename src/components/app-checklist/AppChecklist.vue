@@ -150,6 +150,7 @@
                   :rules="rules.filial"
                   :items="items.filiais"
                   label="* Filial"
+                  required
                 ></v-select>
               </v-col>
               <v-col cols="12" md="12">
@@ -288,26 +289,17 @@ export default {
             ? capitalizeOne(this.dados.observacao.trim())
             : this.dados.observacao,
         };
-        if (this.valid) {
-          await api().post("/checklist", checklist);
-          this.$swal({
-            icon: "success",
-            text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
-            showConfirmButton: true,
-          });
-        } else {
-          this.$swal({
-            icon: "error",
-            text: 'Preencha todos os campos obrigatórios!',
-            showConfirmButton: false,
-            timer: 1800,
-          });
-        }
+        await api().post("checklist", checklist);
+        this.$swal({
+          icon: "success",
+          text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
+          showConfirmButton: true,
+        });
         this.reset();
       } catch (error) {
         this.$swal({
           icon: "error",
-          text: error,
+          text: "Preencha todos os campos obrigatórios!",
           showConfirmButton: false,
           timer: 1800,
         });
