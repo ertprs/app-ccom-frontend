@@ -138,7 +138,6 @@
                   v-model="dados.telefone"
                   label="* Telefone"
                   filled
-                  :rules="rules.telefone"
                   required
                   hint="(XX) XXXXX-XXXX"
                   v-mask="['(##) ####-####', '(##) #####-####']"
@@ -295,6 +294,13 @@ export default {
             icon: "success",
             text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
             showConfirmButton: true,
+          });
+        } else {
+          this.$swal({
+            icon: "error",
+            text: 'Preencha todos os campos obrigatórios!',
+            showConfirmButton: false,
+            timer: 1800,
           });
         }
         this.reset();
