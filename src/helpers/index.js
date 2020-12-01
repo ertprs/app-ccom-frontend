@@ -233,7 +233,7 @@ export const getRules = () => {
     canal: [(canal) => !!canal || "Informe o canal de atendimento!"],
     placa: [
       (placa) => !!placa || "Informe a placa do veículo!",
-      (placa) => placa.length >= 8 || "Placa deve conter 7 caracteres!",
+      // (placa) => placa.length >= 8 || "Placa deve conter 7 caracteres!",
     ],
     filial: [(filial) => !!filial || "Informe a filial!"],
     destino: [(destino) => !!destino || "Informe a filial de destino!"],
