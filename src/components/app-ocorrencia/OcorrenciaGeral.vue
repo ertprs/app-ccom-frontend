@@ -194,6 +194,7 @@ export default {
     },
     reset() {
       this.$refs.form.reset();
+      this.dados.valor = null;
     },
     async save() {
       try {

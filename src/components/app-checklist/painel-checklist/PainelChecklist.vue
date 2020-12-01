@@ -170,7 +170,7 @@
               <v-row justify="center">
                 <v-btn
                   @click="validate"
-                  :disabled="enableButton"
+                  :disabled="!valid"
                   type="submit"
                   class="white--text mr-4"
                   color="#2c3e50"
@@ -289,15 +289,10 @@ export default {
     changeStatus(value) {
       if (value === "Reprovado" || value === "Cancelado") {
         this.showObs = true;
+        this.valid = false;
       } else {
         this.showObs = false;
-      }
-    },
-    enableButton(){
-      if(this.info.status === 'Aprovado' || this.info.status === 'Válido'){
         this.valid = true;
-      }else{
-        this.valid = false;
       }
     },
     async doingChecklist(item) {

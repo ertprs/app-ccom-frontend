@@ -63,6 +63,7 @@
             v-model="dados.filial"
             :rules="rules.filial"
             :items="items.filiais"
+            v-show="showFilial"
             required
             outlined
             placeholder="Informe a filial"
@@ -222,6 +223,7 @@ export default {
   name: "AppAtendimento",
   data: () => ({
     valid: true,
+    showFilial: true,
     MotivosMotoristas,
     MotivosGerenciadora,
     MotivosGerais,
@@ -278,6 +280,7 @@ export default {
         this.visivelGerenciadora = true;
         this.visivelMotoristas = false;
         this.visivelGeral = false;
+        this.showFilial = false;
       } else if (value === "Dedicados") {
         this.visivelGeral = false;
         this.visivelMotoristas = false;
