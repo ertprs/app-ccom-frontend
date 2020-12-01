@@ -237,9 +237,7 @@ export default {
       try {
         const registros = {
           nome: this.dados.nome
-            ? `${capitalize(this.dados.nome.trim())} ${capitalize(
-                this.dados.sobrenome.trim()
-              )}`
+            ? `${capitalize(this.dados.nome.trim())}`
             : this.dados.nome,
           placa: this.dados.placa
             ? this.dados.placa.toUpperCase()
