@@ -304,6 +304,7 @@ export default {
         tecnologia: item.tecnologia,
         vinculo: item.vinculo,
         nome: item.nome,
+        observacao: item.observacao,
         filial: item.filial,
       };
       this.visibleModal = true;
