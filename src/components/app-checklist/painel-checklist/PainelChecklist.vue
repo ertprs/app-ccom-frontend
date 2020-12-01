@@ -161,7 +161,7 @@
                 <v-textarea
                   v-show="showObs"
                   filled
-                  v-model="info.observacao"
+                  v-model="dados.motivo"
                   label="Motivo"
                   value=""
                 ></v-textarea>
@@ -265,6 +265,9 @@ export default {
       observacao: "",
       status: "",
     },
+    dados:{
+      motivo: ""
+    },
     rules: {
       status: [(status) => !!status || "Informe o status!"],
       base: [(base) => !!base || "Informe a base!"],
@@ -304,7 +307,6 @@ export default {
         tecnologia: item.tecnologia,
         vinculo: item.vinculo,
         nome: item.nome,
-        observacao: item.observacao,
         filial: item.filial,
       };
       this.visibleModal = true;
@@ -322,7 +324,7 @@ export default {
           vinculo: this.info.vinculo,
           nome: this.info.nome,
           filial: this.info.filial,
-          motivo: this.info.observacao ? this.info.observacao.trim() : this.info.observacao,
+          motivo: this.dados.motivo ? this.dados.motivo.trim() : this.dados.motivo,
           status: this.info.statusChecklist,
           base: this.info.base,
           validade: this.info.validade,
