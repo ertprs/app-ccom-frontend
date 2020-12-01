@@ -38,6 +38,7 @@
           <v-text-field
             v-model="dados.placaCarreta1"
             label="* Placa da Carreta"
+            :rules="rules.placa"
             outlined
             v-mask="'XXX-#X##'"
           ></v-text-field>
@@ -46,6 +47,7 @@
           <v-text-field
             v-model="dados.placaCarreta2"
             label="* Placa da Carreta 2"
+            :rules="rules.placa"
             outlined
             v-mask="'XXX-#X##'"
           ></v-text-field>
@@ -251,7 +253,7 @@ export default {
           tecnologia: this.dados.tecnologia,
           vinculo: this.dados.vinculo,
           filial: this.dados.filial,
-          status: this.dados.statusChecklist,
+          status: this.dados.status,
           base: this.dados.base,
           observacao: this.dados.registro
             ? capitalizeOne(this.dados.registro.trim())
