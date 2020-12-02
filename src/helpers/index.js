@@ -203,6 +203,7 @@ export const getItems = () => {
       "Regiani Bobbio - Supervisora Operacional - VIX",
       "Lidia Oliveira - Supervisora Operacional - REC",
       "Danilo Lima - Gerente de Filial - MCZ",
+      "Roberto Castilho - Encarregado de Frota - SAO"
     ],
     seguradoras: [
       "ACE",

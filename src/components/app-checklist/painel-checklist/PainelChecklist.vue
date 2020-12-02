@@ -158,7 +158,11 @@
               </v-col>
               <v-col cols="12">
                 <v-textarea
-                  v-if="this.info.statusChecklist === 'Reprovado' || this.info.statusChecklist === 'Cancelado'"
+                  v-if="
+                    this.info.statusChecklist === 'Reprovado' ||
+                      this.info.statusChecklist === 'Cancelado' ||
+                      this.info.statusChecklist === 'Válido'
+                  "
                   filled
                   v-model="dados.motivo"
                   :rules="rules.observacao"
@@ -265,8 +269,8 @@ export default {
       observacao: "",
       status: "",
     },
-    dados:{
-      motivo: ""
+    dados: {
+      motivo: "",
     },
     rules: {
       status: [(status) => !!status || "Informe o status!"],
@@ -317,7 +321,9 @@ export default {
           vinculo: this.info.vinculo,
           nome: this.info.nome,
           filial: this.info.filial,
-          motivo: this.dados.motivo ? this.dados.motivo.trim() : this.dados.motivo,
+          motivo: this.dados.motivo
+            ? this.dados.motivo.trim()
+            : this.dados.motivo,
           status: this.info.statusChecklist,
           base: this.info.base,
           validade: this.info.validade,
