@@ -197,7 +197,6 @@ export default {
   data: () => ({
     valid: true,
     visibleModal: false,
-    showObs: false,
     search: "",
     headers: [
       { align: "center", text: "Filial", value: "filial", sortable: false },
@@ -288,13 +287,6 @@ export default {
     ...mapActions(["loadChecklist", "saveChecklist"]),
     validate() {
       this.$refs.form.validate();
-    },
-    changeStatus(value) {
-      if (value === "Reprovado" || value === "Cancelado") {
-        this.showObs = true;
-      } else {
-        this.showObs = false;
-      }
     },
     async doingChecklist(item) {
       this.info = {
