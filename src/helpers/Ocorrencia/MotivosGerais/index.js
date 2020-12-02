@@ -39,4 +39,19 @@ export const motivos = [
     valor: "SMP em Aprovação (GR)",
     titulo: "SMP em Aprovação",
   },
+  {
+    indice: 8,
+    valor: "E/C sem SMP (Modular)",
+    titulo: "E/C sem SMP",
+  },
+  {
+    indice: 9,
+    valor: "VIA sem SMP (Modular)",
+    titulo: "VIA sem SMP",
+  },
+  {
+    indice: 10,
+    valor: 'Veículo sem Rastreador (Modular)',
+    titulo: "Veículo sem Rastreador",
+  },
 ];

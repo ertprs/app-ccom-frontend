@@ -138,7 +138,6 @@
               </v-col>
               <v-col cols="12">
                 <v-select
-                  @change="changeStatus"
                   v-model="info.statusChecklist"
                   filled
                   :items="['Aprovado', 'Cancelado', 'Reprovado', 'Válido']"
@@ -159,10 +158,12 @@
               </v-col>
               <v-col cols="12">
                 <v-textarea
-                  v-show="showObs"
+                  v-if="this.info.statusChecklist === 'Reprovado' || this.info.statusChecklist === 'Cancelado'"
                   filled
                   v-model="dados.motivo"
-                  label="Motivo"
+                  :rules="rules.observacao"
+                  required
+                  label="* Motivo"
                   value=""
                 ></v-textarea>
               </v-col>

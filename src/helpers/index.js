@@ -186,6 +186,8 @@ export const getItems = () => {
     canais: ["E-mail", "Telefone", "Whatsapp"],
     gerentes: [
       "Giulian Souza - Gerente Corporativo - CAN",
+      "Fabricio Junior de Andrade - Coordenador de Filial - LND",
+      "Adilson Eichendorf - Gerente de Frota - CAN",
       "Lipe - Gerente Regional - CAN",
       "Everson Fernandes - Gerente de Frota - CAN",
       "Eder Amaral - Gerente Regional - SAO",

@@ -164,10 +164,12 @@ export default {
     destinyCities: [],
     rules: getRules(),
     frota: [
+      "Adilson Eichendorf",
       "Alexsandro Velho",
       "Everson Fernandes",
       "Frota Apoio",
       "Frota Controle",
+      "Frota Monitoramento",
     ],
     jornada: [
       "Liberado do Pernoite",
