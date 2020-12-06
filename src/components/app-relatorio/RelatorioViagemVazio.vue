@@ -94,11 +94,10 @@ export default {
             `/relatorio-viagem/?dataInicio=${this.dataInicio}&&dataFim=${this.dataFim}`
           )
           .then((res) => {
-            let info = res.data;
+            const info = res.data;
             this.viagens = info;
           });
       } catch (error) {
-        console.log(error);
         this.$swal({
           icon: "error",
           text: "Ocorreu um erro, atualize seu navegador!",
