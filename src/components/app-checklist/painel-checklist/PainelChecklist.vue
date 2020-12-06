@@ -203,7 +203,7 @@ export default {
     visibleModal: false,
     search: "",
     headers: [
-      { align: "center", text: "Data/Hora", value: `data.${toLocaleString()}`, sortable: false },
+      { align: "center", text: "Data/Hora", value: "data", sortable: false },
       { align: "center", text: "Filial", value: "filial", sortable: false },
       {
         align: "center",
@@ -356,7 +356,7 @@ export default {
       } catch (error) {
         this.$swal({
           icon: "error",
-          text: error,
+          text: "Ocorreu um erro, atualize seu navegador!",
           showConfirmButton: false,
           timer: 1800,
         });
