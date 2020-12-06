@@ -231,7 +231,7 @@ export default {
         .then((res) => {
           const cityName = res.data.map((city) => city.nome);
           this.originCities = cityName;
-          // this.destinyCities = cityName;
+          this.destinyCities = cityName;
         });
     },
     querySelectionsOrigin(v) {
