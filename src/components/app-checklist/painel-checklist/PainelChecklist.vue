@@ -203,6 +203,7 @@ export default {
     visibleModal: false,
     search: "",
     headers: [
+      { align: "center", text: "Data/Hora", value: `data.${toLocaleString()}`, sortable: false },
       { align: "center", text: "Filial", value: "filial", sortable: false },
       {
         align: "center",

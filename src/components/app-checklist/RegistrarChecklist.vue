@@ -268,6 +268,7 @@ export default {
           }, ${this.dados.placaCarreta2 ? this.dados.placaCarreta2 : ""}`,
           usuario: this.currentUser.user.nome,
         };
+        console.log(registros);
         await api().post("registrar-checklist", registros);
         await api().post("atendimento", dadosAtendimento);
         this.$swal({
