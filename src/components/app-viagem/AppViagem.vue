@@ -59,6 +59,7 @@
                   label="* Cidade de origem"
                   v-model="city"
                   :items="originCities"
+                  type="text"
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
@@ -76,6 +77,7 @@
                   label="* Cidade de destino"
                   v-model="destinyCity"
                   :items="destinyCities"
+                  type="text"
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
@@ -190,7 +192,7 @@ export default {
       console.log(error);
       this.$swal({
         icon: "error",
-        text: "Erro no servidor, verifique a conexão!",
+        text: "Ocorreu um erro, atualize a página!",
         showConfirmButton: false,
         timer: 1800,
       });
@@ -257,9 +259,10 @@ export default {
         });
         this.reset();
       } catch (error) {
+        console.log(error)
         this.$swal({
           icon: "error",
-          text: error,
+          text: "Ocorreu um erro, atualize a página!",
           showConfirmButton: false,
           timer: 1800,
         });

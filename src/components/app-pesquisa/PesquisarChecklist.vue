@@ -6,7 +6,7 @@
       </v-col>
       <v-col cols="12">
         <v-row justify="center">
-          <v-col cols="12" sm="12" md="12" lg="5">
+          <v-col cols="12" sm="12" md="12" lg="3">
             <v-text-field
               label="Digite a placa do veículo"
               v-model="pesquisa"
@@ -181,7 +181,7 @@ export default {
       console.log(error);
       this.$swal({
         icon: "error",
-        text: "Erro no servidor, verifique a conexão!",
+        text: "Ocorreu um erro, atualize seu navegador!",
         showConfirmButton: false,
         timer: 1800,
       });

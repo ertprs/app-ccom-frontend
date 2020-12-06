@@ -6,7 +6,7 @@
           Usuários
         </h3>
       </v-col>
-      <v-col cols="12" lg="12">
+      <v-col cols="12" lg="3">
         <v-data-table
           :headers="headers"
           :items="usuarios"

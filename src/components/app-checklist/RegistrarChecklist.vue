@@ -282,7 +282,7 @@ export default {
         console.log(error);
         this.$swal({
           icon: "error",
-          text: "Preencha todos os campos obrigatórios!",
+          text: "Ocorreu um erro, atualize seu navegador!",
           showConfirmButton: false,
           timer: 1800,
         });

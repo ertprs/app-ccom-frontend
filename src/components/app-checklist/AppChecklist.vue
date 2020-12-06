@@ -126,7 +126,7 @@
               <v-col cols="12" sm="4" md="4" lg="4">
                 <v-text-field
                   v-model="dados.motorista"
-                  label="* Quem vai auxiliar no teste:"
+                  label="* Nome de quem vai auxiliar no teste:"
                   filled
                   :rules="rules.motorista"
                   required
@@ -227,7 +227,7 @@ export default {
       ],
       tecnologia: ["Autotrac", "Omnilink", "Onixsat", "Sascar", "Sighra"],
       vinculo: ["Autônomo", "Agregado", "Frota"],
-      operacao: ["Alpargatas", "Bayer", "Fitesa", "Monsanto", "Outros"],
+      operacao: ["Alpargatas", "Bayer", "Braskem", "Fitesa", "Monsanto", "Outros"],
     },
   }),
   methods: {
@@ -299,7 +299,7 @@ export default {
       } catch (error) {
         this.$swal({
           icon: "error",
-          text: "Preencha todos os campos obrigatórios!",
+          text: "Ocorreu um erro, atualize a página!",
           showConfirmButton: false,
           timer: 1800,
         });

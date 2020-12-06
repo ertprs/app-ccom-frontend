@@ -157,9 +157,10 @@ export default {
           document.location.reload();
         }, 1800);
       } catch (error) {
+        console.log(error);
         this.$swal({
           icon: "error",
-          text: error,
+          text: "Ocorreu um erro, atualize seu navegador!",
           showConfirmButton: false,
           timer: 1800,
         });

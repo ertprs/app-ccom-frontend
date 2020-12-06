@@ -101,7 +101,7 @@ export default {
         console.log(error);
         this.$swal({
           icon: "error",
-          text: "Erro no servidor, verifique a conexão!",
+          text: "Ocorreu um erro, atualize seu navegador!",
           showConfirmButton: false,
           timer: 1800,
         });

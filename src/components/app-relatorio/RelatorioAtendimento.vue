@@ -91,7 +91,7 @@ export default {
       try {
         await api()
           .get(
-            `relatorio-atendimento/?dataInicio=${this.dataInicio}&&dataFim=${this.dataFim}`
+            `/relatorio-atendimento/?dataInicio=${this.dataInicio}&&dataFim=${this.dataFim}`
           )
           .then((res) => {
             const info = res.data;
@@ -100,7 +100,7 @@ export default {
       } catch (error) {
         this.$swal({
           icon: "error",
-          text: "Erro no servidor, verifique a conexão!",
+          text: "Ocorreu um erro, atualize seu navegador!",
           showConfirmButton: false,
           timer: 1800,
         });
