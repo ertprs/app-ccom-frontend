@@ -160,7 +160,8 @@ export default {
   data: () => ({
     valid: true,
     isLoading: false,
-    search: null,
+    searchOrigin: null,
+    searchDestiny: null,
     dados: {
       placa: "",
       motorista: "",
@@ -172,7 +173,7 @@ export default {
     state: "",
     destinyState: "",
     city: null,
-    destinyCity: "",
+    destinyCity: null,
     states: [],
     originCities: [],
     destinyCities: [],
@@ -198,7 +199,7 @@ export default {
     searchOrigin(val) {
       val && val !== this.city && this.querySelectionsOrigin(val);
     },
-    searcDestiny(val) {
+    searchDestiny(val) {
       val && val !== this.destinyCity && this.querySelectionsDestiny(val);
     },
   },
@@ -231,7 +232,7 @@ export default {
         .then((res) => {
           const cityName = res.data.map((city) => city.nome);
           this.originCities = cityName;
-          this.destinyCities = cityName;
+          // this.destinyCities = cityName;
         });
     },
     querySelectionsOrigin(v) {
