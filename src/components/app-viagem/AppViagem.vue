@@ -58,8 +58,8 @@
                   label="* Cidade de Origem"
                   v-model="city"
                   :loading="isLoading"
-                  :items="info"
-                  :search-input.sync="search"
+                  :items="infoOrigem"
+                  :search-input.sync="searchOrigin"
                   cache-items
                   hide-no-data
                   required
@@ -77,13 +77,18 @@
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
-                <v-select
-                  filled
-                  label="* Cidade de destino"
+                <v-autocomplete
+                  label="* Cidade de Destino"
                   v-model="destinyCity"
-                  :items="destinyCities"
-                  type="text"
-                ></v-select>
+                  :loading="isLoading"
+                  :items="infoDestino"
+                  :search-input.sync="searchDestiny"
+                  cache-items
+                  hide-no-data
+                  required
+                  filled
+                >
+                </v-autocomplete>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
                 <v-text-field
@@ -171,7 +176,8 @@ export default {
     states: [],
     originCities: [],
     destinyCities: [],
-    info: [],
+    infoOrigem: [],
+    infoDestino: [],
     rules: getRules(),
     frota: [
       "Adilson Eichendorf",
@@ -189,8 +195,11 @@ export default {
     ],
   }),
   watch: {
-    search(val) {
-      val && val !== this.city && this.querySelections(val);
+    searchOrigin(val) {
+      val && val !== this.city && this.querySelectionsOrigin(val);
+    },
+    searcDestiny(val) {
+      val && val !== this.destinyCity && this.querySelectionsDestiny(val);
     },
   },
   async created() {
@@ -225,10 +234,19 @@ export default {
           // this.destinyCities = cityName;
         });
     },
-    querySelections(v) {
+    querySelectionsOrigin(v) {
       this.isLoading = true;
       setTimeout(() => {
-        this.info = this.originCities.filter((e) => {
+        this.infoOrigem = this.originCities.filter((e) => {
+          return (e || "").toLowerCase().indexOf((v || "").toLowerCase()) > -1;
+        });
+        this.isLoading = false;
+      }, 500);
+    },
+    querySelectionsDestiny(v) {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.infoDestino = this.destinyCities.filter((e) => {
           return (e || "").toLowerCase().indexOf((v || "").toLowerCase()) > -1;
         });
         this.isLoading = false;
