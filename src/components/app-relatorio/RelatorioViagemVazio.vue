@@ -91,7 +91,7 @@ export default {
       try {
         await api()
           .get(
-            `/relatorio-viagem-vazio/?dataInicio=${this.dataInicio}&&dataFim=${this.dataFim}`
+            `/relatorio-viagem/?dataInicio=${this.dataInicio}&&dataFim=${this.dataFim}`
           )
           .then((res) => {
             let info = res.data;

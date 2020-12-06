@@ -54,13 +54,18 @@
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
-                <v-select
-                  filled
-                  label="* Cidade de origem"
+                <v-autocomplete
+                  label="* Cidade de Origem"
                   v-model="city"
-                  :items="originCities"
-                  type="text"
-                ></v-select>
+                  :loading="isLoading"
+                  :items="info"
+                  :search-input.sync="search"
+                  cache-items
+                  hide-no-data
+                  required
+                  filled
+                >
+                </v-autocomplete>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
                 <v-select
@@ -149,6 +154,8 @@ export default {
   name: "AppViagem",
   data: () => ({
     valid: true,
+    isLoading: false,
+    search: null,
     dados: {
       placa: "",
       motorista: "",
@@ -159,11 +166,12 @@ export default {
     },
     state: "",
     destinyState: "",
-    city: "",
+    city: null,
     destinyCity: "",
     states: [],
     originCities: [],
     destinyCities: [],
+    info: [],
     rules: getRules(),
     frota: [
       "Adilson Eichendorf",
@@ -180,6 +188,11 @@ export default {
       "Sem Liberação",
     ],
   }),
+  watch: {
+    search(val) {
+      val && val !== this.city && this.querySelections(val);
+    },
+  },
   async created() {
     try {
       await axios
@@ -209,8 +222,17 @@ export default {
         .then((res) => {
           const cityName = res.data.map((city) => city.nome);
           this.originCities = cityName;
-          this.destinyCities = cityName;
+          // this.destinyCities = cityName;
         });
+    },
+    querySelections(v) {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.info = this.originCities.filter((e) => {
+          return (e || "").toLowerCase().indexOf((v || "").toLowerCase()) > -1;
+        });
+        this.isLoading = false;
+      }, 500);
     },
     async loadDestinyCity(event) {
       let state = event;
@@ -259,7 +281,7 @@ export default {
         });
         this.reset();
       } catch (error) {
-        console.log(error)
+        console.log(error);
         this.$swal({
           icon: "error",
           text: "Ocorreu um erro, atualize a página!",
