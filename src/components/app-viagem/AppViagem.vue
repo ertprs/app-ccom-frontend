@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col class="text-center text-h6 mx-3" cols="12" sm="12" md="12">
         <h3 class="white--text">Informar viagem com veículo vazio.</h3>
-        <p class="description">
+        <p class="description px-3">
           Favor preencher o formulário abaixo com os dados da viagem.
         </p>
         <p class="description">
@@ -40,6 +40,7 @@
                   filled
                   label="* Motorista"
                   v-model="dados.motorista"
+                  :rules="rules.motorista"
                   required
                   hint="Nome do motorista"
                 ></v-text-field>
@@ -51,6 +52,8 @@
                   v-model="state"
                   :items="states"
                   @change="loadOriginCity"
+                  :rules="rules.estado"
+                  required
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
@@ -60,6 +63,7 @@
                   :loading="isLoading"
                   :items="infoOrigem"
                   :search-input.sync="searchOrigin"
+                  :rules="rules.cidade"
                   cache-items
                   hide-no-data
                   required
@@ -74,6 +78,8 @@
                   v-model="destinyState"
                   :items="states"
                   @change="loadDestinyCity"
+                  :rules="rules.estado"
+                  required
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="4" md="4" lg="5">
@@ -82,6 +88,7 @@
                   v-model="destinyCity"
                   :loading="isLoading"
                   :items="infoDestino"
+                  :rules="rules.cidade"
                   :search-input.sync="searchDestiny"
                   cache-items
                   hide-no-data
@@ -96,6 +103,7 @@
                   label="* Distância a percorrer vazio"
                   v-model="dados.distancia"
                   type="number"
+                  :rules="rules.distancia"
                   required
                 ></v-text-field>
               </v-col>
@@ -105,6 +113,7 @@
                   label="* Autorizado por:"
                   v-model="dados.nome"
                   :items="frota"
+                  :rules="rules.nome"
                   required
                 ></v-select>
               </v-col>
@@ -115,6 +124,7 @@
                   v-model="dados.jornada"
                   :items="jornada"
                   required
+                  :rules="rules.jornada"
                 ></v-select>
               </v-col>
               <v-col cols="12" md="12" lg="10">
@@ -187,6 +197,7 @@ export default {
       "Frota Apoio",
       "Frota Controle",
       "Frota Monitoramento",
+      "Roberto Castilho",
     ],
     jornada: [
       "Liberado do Pernoite",

@@ -131,7 +131,7 @@
         <v-col cols="12" md="8" class="mx-auto">
           <v-textarea
             label="Registro"
-            v-model="dados.registro"
+            v-model="dados.motivo"
             value=""
             outlined
           />
@@ -182,7 +182,7 @@ export default {
       status: "",
       canal: "",
       base: "",
-      registro: "",
+      motivo: "",
       usuario: "",
     },
     rules: getRules(),
@@ -253,10 +253,11 @@ export default {
           filial: this.dados.filial,
           status: this.dados.status,
           base: this.dados.base,
-          observacao: this.dados.registro
-            ? capitalizeOne(this.dados.registro.trim())
-            : this.dados.registro,
+          motivo: this.dados.motivo
+            ? capitalizeOne(this.dados.motivo.trim())
+            : this.dados.motivo,
           usuario: this.currentUser.user.nome,
+          plataforma: "E-mail",
         };
         const dadosAtendimento = {
           nome: this.dados.nome,

@@ -329,6 +329,7 @@ export default {
           base: this.info.base,
           validade: this.info.validade,
           usuario: this.currentUser.user.nome,
+          plataforma: "App Checklist"
         };
         const dadosAtendimento = {
           nome: this.info.nome,

@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col class="text-center text-h6 mx-3" cols="12" sm="12" md="12">
         <h3 class="white--text">Solicitação de Checklist</h3>
-        <p class="description">
+        <p class="description px-3">
           Favor preencher o formulário abaixo com os dados do veículo.
         </p>
         <p class="description">Dúvidas contate o CCOM:</p>

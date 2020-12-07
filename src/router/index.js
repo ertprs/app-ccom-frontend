@@ -8,6 +8,7 @@ import OcorrenciaModular from "../views/Ocorrencia/OcorrenciaModular";
 import OcorrenciaJornada from "../views/Ocorrencia/OcorrenciaJornada";
 import OcorrenciaGerenciadora from "../views/Ocorrencia/OcorrenciaGerenciadora";
 import OcorrenciaGeral from "../views/Ocorrencia/OcorrenciaGeral";
+import OcorrenciaOperacional from "../views/Ocorrencia/OcorrenciaOperacional";
 import NovoCadastro from "../views/Cadastro/NovoCadastro";
 import Relatorio from "../views/Relatorio/Relatorio";
 import PainelChecklist from "../views/Checklist/PainelChecklist";
@@ -16,10 +17,11 @@ import PesquisarAtendimento from "../views/Pesquisa/PesquisarAtendimento";
 import PesquisarOcorrencia from "../views/Pesquisa/PesquisarOcorrencia";
 import PesquisarChecklist from "../views/Pesquisa/PesquisarChecklist";
 import Checklist from "../views/Checklist/Checklist";
-import RegistrarChecklist from '../views/Checklist/RegistrarChecklist';
+import RegistrarChecklist from "../views/Checklist/RegistrarChecklist";
 import ViagemVazio from "../views/Viagem/ViagemVazio";
 import AdmAtendimento from "../views/Administrativo/AdmAtendimento";
 import AdmOcorrencia from "../views/Administrativo/AdmOcorrencia";
+import AdmChecklist from "../views/Administrativo/AdmChecklist";
 import DDR from "../views/DDR/DDR";
 import PesquisarDDR from "../views/Pesquisa/PesquisarDDR";
 import PesquisarCadastro from "../views/Pesquisa/PesquisarCadastro";
@@ -52,6 +54,20 @@ export default new Router({
       path: "/adm-ocorrencia",
       name: "adm-ocorrencia",
       component: AdmOcorrencia,
+      beforeEnter: (to, from, next) => {
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        let user = currentUser.user;
+        if (user && user.usuario) {
+          next();
+        } else {
+          next("/");
+        }
+      },
+    },
+    {
+      path: "/adm-checklist",
+      name: "adm-checklist",
+      component: AdmChecklist,
       beforeEnter: (to, from, next) => {
         let currentUser = JSON.parse(localStorage.getItem("currentUser"));
         let user = currentUser.user;
@@ -141,6 +157,20 @@ export default new Router({
       path: "/ocorrencia-geral",
       name: "ocorrencia-geral",
       component: OcorrenciaGeral,
+      beforeEnter(to, from, next) {
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        let user = currentUser.user;
+        if (user && user.usuario) {
+          next();
+        } else {
+          next("/");
+        }
+      },
+    },
+    {
+      path: "/ocorrencia-operacional",
+      name: "ocorrencia-operacional",
+      component: OcorrenciaOperacional,
       beforeEnter(to, from, next) {
         let currentUser = JSON.parse(localStorage.getItem("currentUser"));
         let user = currentUser.user;

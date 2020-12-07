@@ -27,6 +27,12 @@
                 Ocorrência
               </v-list-item-title>
             </router-link>
+            <v-divider class="mt-2"></v-divider>
+            <router-link to="/adm-checklist" class="link white--text">
+              <v-list-item-title class="text-button mt-4">
+                Checklist
+              </v-list-item-title>
+            </router-link>
           </v-list-item-content>
         </v-list-item>
       </v-list-group>
@@ -91,6 +97,12 @@
             <router-link to="/ocorrencia-geral" class="link white--text">
               <v-list-item-title class="text-button mt-4">
                 Geral
+              </v-list-item-title>
+            </router-link>
+            <v-divider class="mt-2"></v-divider>
+            <router-link to="/ocorrencia-operacional" class="link white--text">
+              <v-list-item-title class="text-button mt-4">
+                Operacional
               </v-list-item-title>
             </router-link>
             <v-divider class="mt-2"></v-divider>

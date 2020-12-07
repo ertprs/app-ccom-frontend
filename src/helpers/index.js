@@ -153,7 +153,7 @@ export const getItems = () => {
       "91 - FRO",
       "92 - VDC",
       "93 - FEC",
-      "94 - SJP",
+      "94 - AAX",
       "95 - RAO",
       "96 - BAU",
       "97 - ALQ",
@@ -203,7 +203,7 @@ export const getItems = () => {
       "Regiani Bobbio - Supervisora Operacional - VIX",
       "Lidia Oliveira - Supervisora Operacional - REC",
       "Danilo Lima - Gerente de Filial - MCZ",
-      "Roberto Castilho - Encarregado de Frota - SAO"
+      "Roberto Castilho - Encarregado de Frota - SAO",
     ],
     seguradoras: [
       "ACE",
@@ -253,9 +253,7 @@ export const getRules = () => {
       (rastreador) => !!rastreador || "Informe o número do rastreador",
     ],
     tecnologia: [(tecnologia) => !!tecnologia || "Informe a tecnologia"],
-    motorista: [
-      (motorista) => !!motorista || "Informe quem irá auxiliar no teste",
-    ],
+    motorista: [(motorista) => !!motorista || "Informe o motorista!"],
     telefone: [
       (telefone) =>
         !!telefone || "Informe o telefone de quem irá auxiliar no teste",
@@ -282,6 +280,12 @@ export const getRules = () => {
       (email) => /.+@.+\..+/.test(email) || "Informe um e-mail válido!",
     ],
     operacao: [(operacao) => !!operacao || "Informe a operação!"],
+    distancia: [(distancia) => !!distancia || "Informe a distância!"],
+    cidade: [(cidade) => !!cidade || "Informe a cidade!"],
+    estado: [(estado) => !!estado || "Informe o estado!"],
+    jornada: [
+      (jornada) => !!jornada || "Informe se possui liberação de jornada!",
+    ],
     error: false,
     success: false,
     mandatory: false,
