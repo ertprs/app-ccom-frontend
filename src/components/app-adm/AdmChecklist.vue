@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     async initialize() {
-      const response = await api().get("checklist");
+      const response = await api().get("pesquisar-checklist");
       this.checklists = response.data;
     },
     async deleteItem(item, id) {
