@@ -316,9 +316,9 @@ export default {
             icon: "error",
             text: `Informe todos os dados!`,
             showConfirmButton: false,
-            timer: 2000,
+            timer: 3000,
           });
-          setInterval(this.reload(), 2005);
+          setInterval(this.reload(), 4000);
         } else {
           await api().post("checklist", checklist);
           this.$swal({
