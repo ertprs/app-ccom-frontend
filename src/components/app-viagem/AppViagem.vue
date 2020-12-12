@@ -319,8 +319,7 @@ export default {
           this.$swal({
             icon: "error",
             text: "Preencha todos os campos!",
-            showConfirmButton: false,
-            timer: 1800,
+            showConfirmButton: true,
           });
           this.reload();
         } else {

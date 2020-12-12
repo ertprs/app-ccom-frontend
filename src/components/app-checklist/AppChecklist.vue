@@ -315,8 +315,7 @@ export default {
           this.$swal({
             icon: "error",
             text: `Informe todos os dados!`,
-            showConfirmButton: false,
-            timer: 2000,
+            showConfirmButton: true,
           });
           this.reload();
         } else {
