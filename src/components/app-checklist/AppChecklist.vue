@@ -306,7 +306,7 @@ export default {
           this.dados.nome === "" &&
           this.dados.motorista === "" &&
           this.dados.telefone === "" &&
-          this.dados.filial
+          this.dados.filial === ""
         ) {
           this.$swal({
             icon: "error",
