@@ -141,7 +141,6 @@
                   color="#2c3e50"
                   class="white--text mr-4"
                   @click="validate"
-                  :disabled="!valid"
                 >
                   Enviar
                 </v-btn>
@@ -303,14 +302,33 @@ export default {
             : this.dados.observacao,
           status: "Aberto",
         };
-        await api().post("/viagem-vazio", viagem);
-        this.$swal({
-          icon: "success",
-          text: "Informação registrada com sucesso!",
-          showConfirmButton: false,
-          timer: 1800,
-        });
-        this.reset();
+        if (
+          this.dados.placa === "" &&
+          this.dados.motorista === "" &&
+          this.state === "" &&
+          this.city === null &&
+          this.destinyState === "" &&
+          this.destinyCity === null &&
+          this.distancia === "" &&
+          this.dados.nome === "" &&
+          this.dados.jornada === ""
+        ) {
+          this.$swal({
+            icon: "error",
+            text: "Preencha todos os campos!",
+            showConfirmButton: false,
+            timer: 1800,
+          });
+        } else {
+          await api().post("/viagem-vazio", viagem);
+          this.$swal({
+            icon: "success",
+            text: "Informação registrada com sucesso!",
+            showConfirmButton: false,
+            timer: 1800,
+          });
+          this.reset();
+        }
       } catch (error) {
         console.log(error);
         this.$swal({
