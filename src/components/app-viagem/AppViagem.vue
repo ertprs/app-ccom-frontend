@@ -281,6 +281,9 @@ export default {
     reset() {
       this.$refs.form.reset();
     },
+    reload() {
+      document.location.reload();
+    },
     async save() {
       try {
         const viagem = {
@@ -319,6 +322,7 @@ export default {
             showConfirmButton: false,
             timer: 1800,
           });
+          this.reload();
         } else {
           await api().post("/viagem-vazio", viagem);
           this.$swal({

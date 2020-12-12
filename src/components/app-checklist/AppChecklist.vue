@@ -138,6 +138,7 @@
                   v-model="dados.telefone"
                   label="* Telefone"
                   filled
+                  :rules="rules.telefone"
                   required
                   hint="(XX) XXXXX-XXXX"
                   v-mask="['(##) ####-####', '(##) #####-####']"
@@ -244,6 +245,9 @@ export default {
     reset() {
       this.$refs.form.reset();
     },
+    reload() {
+      document.location.reload();
+    },
     generateProtocol() {
       let data = new Date();
       return (
@@ -311,8 +315,10 @@ export default {
           this.$swal({
             icon: "error",
             text: `Informe todos os dados!`,
-            showConfirmButton: true,
+            showConfirmButton: false,
+            timer: 2000,
           });
+          this.reload();
         } else {
           await api().post("checklist", checklist);
           this.$swal({

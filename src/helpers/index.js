@@ -257,7 +257,7 @@ export const getRules = () => {
     telefone: [
       (telefone) =>
         !!telefone || "Informe o telefone de quem irá auxiliar no teste",
-      (telefone) => telefone.length >= 15 || "Telefone deve conter 11 dígitos!",
+      // (telefone) => telefone.length >= 15 || "Telefone deve conter 11 dígitos!",
     ],
     relatorio: [(data) => !!data || "Informe a data!"],
     valor: [(valor) => !!valor || "Informe o valor!"],
