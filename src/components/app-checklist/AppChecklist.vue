@@ -315,10 +315,10 @@ export default {
           this.$swal({
             icon: "error",
             text: `Informe todos os dados!`,
-            showConfirmButton: true,
+            showConfirmButton: false,
             timer: 2000,
           });
-          setInterval(this.reload(), 2002);
+          setInterval(this.reload(), 2005);
         } else {
           await api().post("checklist", checklist);
           this.$swal({

@@ -319,10 +319,10 @@ export default {
           this.$swal({
             icon: "error",
             text: "Preencha todos os campos!",
-            showConfirmButton: true,
+            showConfirmButton: false,
             timer: 2000,
           });
-          setInterval(this.reload(), 2002);
+          setInterval(this.reload(), 2005);
         } else {
           await api().post("/viagem-vazio", viagem);
           this.$swal({
