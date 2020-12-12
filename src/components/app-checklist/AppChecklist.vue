@@ -227,7 +227,14 @@ export default {
       ],
       tecnologia: ["Autotrac", "Omnilink", "Onixsat", "Sascar", "Sighra"],
       vinculo: ["Autônomo", "Agregado", "Frota"],
-      operacao: ["Alpargatas", "Bayer", "Braskem", "Fitesa", "Monsanto", "Outros"],
+      operacao: [
+        "Alpargatas",
+        "Bayer",
+        "Braskem",
+        "Fitesa",
+        "Monsanto",
+        "Outros",
+      ],
     },
   }),
   methods: {
@@ -289,13 +296,32 @@ export default {
             ? capitalizeOne(this.dados.observacao.trim())
             : this.dados.observacao,
         };
-        await api().post("checklist", checklist);
-        this.$swal({
-          icon: "success",
-          text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
-          showConfirmButton: true,
-        });
-        this.reset();
+        if (
+          this.dados.email === "" &&
+          this.dados.placa === "" &&
+          this.dados.tipo === "" &&
+          this.dados.numeroRastreador === "" &&
+          this.dados.tecnologia === "" &&
+          this.dados.vinculo === "" &&
+          this.dados.nome === "" &&
+          this.dados.motorista === "" &&
+          this.dados.telefone === "" &&
+          this.dados.filial
+        ) {
+          this.$swal({
+            icon: "error",
+            text: `Informe todos os dados!`,
+            showConfirmButton: true,
+          });
+        } else {
+          await api().post("checklist", checklist);
+          this.$swal({
+            icon: "success",
+            text: `Solicitado com sucesso! Protocolo: ${checklist.protocolo}`,
+            showConfirmButton: true,
+          });
+          this.reset();
+        }
       } catch (error) {
         this.$swal({
           icon: "error",
