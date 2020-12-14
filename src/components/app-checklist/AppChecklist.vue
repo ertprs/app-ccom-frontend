@@ -301,16 +301,16 @@ export default {
             : this.dados.observacao,
         };
         if (
-          this.dados.email === "" ||
-          this.dados.placa === "" ||
-          this.dados.tipo === "" ||
-          this.dados.numeroRastreador === "" ||
-          this.dados.tecnologia === "" ||
-          this.dados.vinculo === "" ||
-          this.dados.nome === "" ||
-          this.dados.motorista === "" ||
-          this.dados.telefone === "" ||
-          this.dados.filial === ""
+          this.dados.email === undefined ||
+          this.dados.placa === undefined ||
+          this.dados.tipo === undefined ||
+          this.dados.numeroRastreador === undefined ||
+          this.dados.tecnologia === undefined ||
+          this.dados.vinculo === undefined ||
+          this.dados.nome === undefined ||
+          this.dados.motorista === undefined ||
+          this.dados.telefone === undefined ||
+          this.dados.filial === undefined
         ) {
           this.$swal({
             icon: "error",
@@ -320,6 +320,7 @@ export default {
           });
           setInterval(this.reload(), 4000);
         } else {
+          console.log(checklist);
           await api().post("checklist", checklist);
           this.$swal({
             icon: "success",
