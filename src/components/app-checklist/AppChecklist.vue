@@ -274,52 +274,44 @@ export default {
     },
     async save() {
       try {
-        const checklist = {
-          protocolo: this.generateProtocol(),
-          email: this.dados.email,
-          placa: this.dados.placa.toUpperCase(),
-          placaCarreta1: this.dados.placaCarreta1
-            ? this.dados.placaCarreta1.toUpperCase()
-            : this.dados.placaCarreta1,
-          placaCarreta2: this.dados.placaCarreta2
-            ? this.dados.placaCarreta2.toUpperCase()
-            : this.dados.placaCarreta2,
-          tipo: this.dados.tipo,
-          numeroRastreador: this.dados.numeroRastreador,
-          tecnologia: this.dados.tecnologia,
-          vinculo: this.dados.vinculo,
-          nome: this.dados.nome
-            ? capitalize(this.dados.nome.trim())
-            : this.dados.nome,
-          motorista: this.dados.motorista
-            ? capitalize(this.dados.motorista.trim())
-            : this.dados.motorista,
-          telefone: this.dados.telefone,
-          filial: this.dados.filial,
-          observacao: this.dados.observacao
-            ? capitalizeOne(this.dados.observacao.trim())
-            : this.dados.observacao,
-        };
         if (
-          this.dados.email === undefined ||
-          this.dados.placa === undefined ||
-          this.dados.tipo === undefined ||
-          this.dados.numeroRastreador === undefined ||
-          this.dados.tecnologia === undefined ||
-          this.dados.vinculo === undefined ||
-          this.dados.nome === undefined ||
-          this.dados.motorista === undefined ||
-          this.dados.telefone === undefined ||
-          this.dados.filial === undefined
+          this.dados.email !== "" ||
+          this.dados.placa !== "" ||
+          this.dados.tipo !== "" ||
+          this.dados.numeroRastreador !== "" ||
+          this.dados.tecnologia !== "" ||
+          this.dados.vinculo !== "" ||
+          this.dados.nome !== "" ||
+          this.dados.motorista !== "" ||
+          this.dados.telefone !== "" ||
+          this.dados.filial !== ""
         ) {
-          this.$swal({
-            icon: "error",
-            text: `Informe todos os dados!`,
-            showConfirmButton: false,
-            timer: 3000,
-          });
-          setInterval(this.reload(), 4000);
-        } else {
+          const checklist = {
+            protocolo: this.generateProtocol(),
+            email: this.dados.email,
+            placa: this.dados.placa.toUpperCase(),
+            placaCarreta1: this.dados.placaCarreta1
+              ? this.dados.placaCarreta1.toUpperCase()
+              : this.dados.placaCarreta1,
+            placaCarreta2: this.dados.placaCarreta2
+              ? this.dados.placaCarreta2.toUpperCase()
+              : this.dados.placaCarreta2,
+            tipo: this.dados.tipo,
+            numeroRastreador: this.dados.numeroRastreador,
+            tecnologia: this.dados.tecnologia,
+            vinculo: this.dados.vinculo,
+            nome: this.dados.nome
+              ? capitalize(this.dados.nome.trim())
+              : this.dados.nome,
+            motorista: this.dados.motorista
+              ? capitalize(this.dados.motorista.trim())
+              : this.dados.motorista,
+            telefone: this.dados.telefone,
+            filial: this.dados.filial,
+            observacao: this.dados.observacao
+              ? capitalizeOne(this.dados.observacao.trim())
+              : this.dados.observacao,
+          };
           console.log(checklist);
           await api().post("checklist", checklist);
           this.$swal({
@@ -328,6 +320,14 @@ export default {
             showConfirmButton: true,
           });
           this.reset();
+        } else {
+          this.$swal({
+            icon: "error",
+            text: `Informe todos os dados!`,
+            showConfirmButton: false,
+            timer: 3000,
+          });
+          setInterval(this.reload(), 4000);
         }
       } catch (error) {
         this.$swal({
