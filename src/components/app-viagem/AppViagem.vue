@@ -306,14 +306,14 @@ export default {
           status: "Aberto",
         };
         if (
-          this.dados.placa === "" &&
-          this.dados.motorista === "" &&
-          this.state === "" &&
-          this.city === null &&
-          this.destinyState === "" &&
-          this.destinyCity === null &&
-          this.distancia === "" &&
-          this.dados.nome === "" &&
+          this.dados.placa === "" ||
+          this.dados.motorista === "" ||
+          this.state === "" ||
+          this.city === null ||
+          this.destinyState === "" ||
+          this.destinyCity === null ||
+          this.distancia === "" ||
+          this.dados.nome === "" ||
           this.dados.jornada === ""
         ) {
           this.$swal({

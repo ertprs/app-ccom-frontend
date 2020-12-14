@@ -301,15 +301,15 @@ export default {
             : this.dados.observacao,
         };
         if (
-          this.dados.email === "" &&
-          this.dados.placa === "" &&
-          this.dados.tipo === "" &&
-          this.dados.numeroRastreador === "" &&
-          this.dados.tecnologia === "" &&
-          this.dados.vinculo === "" &&
-          this.dados.nome === "" &&
-          this.dados.motorista === "" &&
-          this.dados.telefone === "" &&
+          this.dados.email === "" ||
+          this.dados.placa === "" ||
+          this.dados.tipo === "" ||
+          this.dados.numeroRastreador === "" ||
+          this.dados.tecnologia === "" ||
+          this.dados.vinculo === "" ||
+          this.dados.nome === "" ||
+          this.dados.motorista === "" ||
+          this.dados.telefone === "" ||
           this.dados.filial === ""
         ) {
           this.$swal({
