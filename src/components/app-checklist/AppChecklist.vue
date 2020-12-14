@@ -327,7 +327,6 @@ export default {
             showConfirmButton: false,
             timer: 3000,
           });
-          setInterval(this.reload(), 4000);
         }
       } catch (error) {
         this.$swal({

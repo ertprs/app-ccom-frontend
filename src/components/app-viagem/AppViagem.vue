@@ -286,44 +286,37 @@ export default {
     },
     async save() {
       try {
-        const viagem = {
-          placa: this.dados.placa
-            ? this.dados.placa.toUpperCase()
-            : this.dados.placa,
-          motorista: this.dados.motorista
-            ? capitalize(this.dados.motorista)
-            : this.dados.motorista,
-          estadoOrigem: this.state,
-          cidadeOrigem: this.city,
-          estadoDestino: this.destinyState,
-          cidadeDestino: this.destinyCity,
-          distancia: this.dados.distancia,
-          nome: this.dados.nome,
-          jornada: this.dados.jornada,
-          observacao: this.dados.observacao
-            ? capitalizeOne(this.dados.observacao.trim())
-            : this.dados.observacao,
-          status: "Aberto",
-        };
         if (
-          this.dados.placa === "" ||
-          this.dados.motorista === "" ||
-          this.state === "" ||
-          this.city === null ||
-          this.destinyState === "" ||
-          this.destinyCity === null ||
-          this.distancia === "" ||
-          this.dados.nome === "" ||
-          this.dados.jornada === ""
+          this.dados.placa !== "" &&
+          this.dados.motorista !== "" &&
+          this.state !== "" &&
+          this.city !== null &&
+          this.destinyState !== "" &&
+          this.destinyCity !== null &&
+          this.distancia !== "" &&
+          this.dados.nome !== "" &&
+          this.dados.jornada !== ""
         ) {
-          this.$swal({
-            icon: "error",
-            text: "Preencha todos os campos!",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-          setInterval(this.reload(), 4000);
-        } else {
+          const viagem = {
+            placa: this.dados.placa
+              ? this.dados.placa.toUpperCase()
+              : this.dados.placa,
+            motorista: this.dados.motorista
+              ? capitalize(this.dados.motorista)
+              : this.dados.motorista,
+            estadoOrigem: this.state,
+            cidadeOrigem: this.city,
+            estadoDestino: this.destinyState,
+            cidadeDestino: this.destinyCity,
+            distancia: this.dados.distancia,
+            nome: this.dados.nome,
+            jornada: this.dados.jornada,
+            observacao: this.dados.observacao
+              ? capitalizeOne(this.dados.observacao.trim())
+              : this.dados.observacao,
+            status: "Aberto",
+          };
+          console.log(viagem);
           await api().post("/viagem-vazio", viagem);
           this.$swal({
             icon: "success",
@@ -332,6 +325,13 @@ export default {
             timer: 1800,
           });
           this.reset();
+        } else {
+          this.$swal({
+            icon: "error",
+            text: "Preencha todos os campos!",
+            showConfirmButton: false,
+            timer: 3000,
+          });
         }
       } catch (error) {
         console.log(error);
