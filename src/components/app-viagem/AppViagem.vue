@@ -290,10 +290,10 @@ export default {
           this.dados.placa !== "" &&
           this.dados.motorista !== "" &&
           this.state !== "" &&
-          this.city !== null &&
+          this.city !== "" &&
           this.destinyState !== "" &&
-          this.destinyCity !== null &&
-          this.distancia !== "" &&
+          this.destinyCity !== "" &&
+          this.dados.distancia !== "" &&
           this.dados.nome !== "" &&
           this.dados.jornada !== ""
         ) {
